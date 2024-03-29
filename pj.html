@@ -39,7 +39,50 @@
             <img class="switch_mode_btn" src="./imgs/switch_mode_btn.png" alt="img">
             <h3 class="user_greatings">Вітаємо, User</h3>
         </div>
-        
+    </header>
+    <section class="game_1_2">
+        <div class="container">
+            <h1 class="main_heading">Популярні інтерактивні ігри</h1>
+            <hr>
+            <h3 class="heading1">Перевір в який рік ти народився</h3>
+            <div class="input_and_answer_group">
+                <div class="input-group">
+                    <input type="text" placeholder="Введіть рік народження" class="input-field">
+                    <button type="submit" class="button">🔍︎</button>
+                </div>
+                <p class="answer">Ви народилися у високосний рік!</p>
+            </div>
+            <hr>
+            <h3 class="heading1">Вгадай число, яке загадав комп'ютер</h3>
+            <div class="input_and_answer_group">
+                <div class="input-group" style="margin-right: 202px;">
+                    <input type="text" placeholder="Введіть число" style="width: 115px;" class="input-field">
+                    <button type="submit" class="button">🔍︎</button>
+                </div>
+                <p class="answer">Вітаю, Ви вгадали число! (number)</p>
+            </div>
+            <hr>
+            <h3 class="heading1">Камінь - ножиці - папір</h3>
+            <div class="button_and_count_div">
+                <ul class="game_button_list">
+                    <li class="button_list_item btn4"><button class="game_button"><img src="./imgs/button1.svg" alt="Камінь" class="game_button_img"></button></li>
+                    <li class="button_list_item btn4"><button class="game_button"><img src="./imgs/button2.svg" alt="Ножиці" class="game_button_img"></button></li>
+                    <li class="button_list_item btn4"><button class="game_button"><img src="./imgs/button3.svg" alt="Папір" class="game_button_img"></button></li>
+                </ul>
+                <ul class="count">
+                    <li class="count_list_item">Рахунок:</li>
+                    <li class="count_list_item">Комп'ютер - 0</li>
+                    <li class="count_list_item">Ви - 0</li>
+                </ul>
+                
+            </div>
+            <p class="answer" style="text-align: center; margin-bottom: 36px;">Ви виграли раунд!</p>
+            <div class="game_button_center">
+                <button class="button_game">Варіант комп'ютера</button>
+            </div>
+            <hr>
+        </div>
+    </section>
     <script src="./pj.js"></script>
 </body>
 </html>
