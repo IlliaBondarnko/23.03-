@@ -351,3 +351,22 @@ hr {
 .flex_time_calc:not(:last-child) {
     margin-right: 33px;
 }
+
+/* ____FOOTBALL__________________________________________ */
+
+.football_court{
+        box-sizing: border-box;
+        width: 720px;
+        height: 220px;
+    
+        background: #5ABB58;
+        border: 2px solid #000000;
+        border-radius: 37px;
+}
+.ball{
+    width: 50px;
+    height: 50px;
+    background-image: url(./imgs/ball.png);
+    border-radius: 50%;
+    transition: transform 0.3 cubic-bezier(0.165, 0.84, 0.44, 1);
+}
