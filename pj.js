@@ -71,11 +71,123 @@ function whenClicked(event) {
       football.style.transform = `translate(${newX - ball_client_width / 2}px, ${newY - ball_client_height / 2}px)`;
 }
 
+// ________________________________________________________________
+
+// __________CALCULATOR____________________________________________
+
+const plus = document.getElementById("plus_op");
+const minus = document.getElementById("minus_op");
+const multiply = document.getElementById("multiply_op");
+const split = document.getElementById("split_op");
+const equals = document.getElementById("equals_butoon");
+
+const firstn = document.getElementById("first_num");
+const secondn = document.getElementById("second_num");
+const answer = document.getElementById("calc_answer");
 
 
+plus.addEventListener("click", plusOption);
+minus.addEventListener("click", minusOption);
+multiply.addEventListener("click", multiplyOption);
+split.addEventListener("click", splitOption);
+equals.addEventListener("click", calaAnswer);
 
 
+function plusOption(){
+  const plus_answ = Number(firstn.value) + Number(secondn.value)
+  const res = calaAnswer(plus_answ)
+  answer.textContent = res
 
+}
+
+function minusOption(){
+  const plus_answ = Number(firstn.value) - Number(secondn.value)
+  const res = calaAnswer(plus_answ)
+  answer.textContent = res
+
+}
+
+function multiplyOption(){
+  const plus_answ = Number(firstn.value) * Number(secondn.value)
+  const res = calaAnswer(plus_answ)
+  answer.textContent = res
+
+}
+
+function splitOption(){
+  const plus_answ = Number(firstn.value) / Number(secondn.value)
+  const res = calaAnswer(plus_answ)
+  answer.textContent = res
+
+}
+
+function calaAnswer(res){
+  // answer.textContent = res
+  return res
+}
 
 
 // ________________________________________________________________
+// _______________3_NUMS___________________________________________
+
+
+const frst = document.getElementById("1_of_3");
+const scnd = document.getElementById("2_of_3");
+const thrd = document.getElementById("3_of_3");
+const answ = document.getElementById("par")
+
+frst.addEventListener("input", findMaxNumber)
+scnd.addEventListener("input", findMaxNumber);
+thrd.addEventListener("input", findMaxNumber);
+
+
+// Функція для пошуку найбільшого числа
+function findMaxNumber() {
+  const num1 = Number(frst.value);
+  const num2 = Number(scnd.value);
+  const num3 = Number(thrd.value);
+
+
+  let maxNumber = num1;
+  if (num2 > maxNumber) {
+    maxNumber = num2;
+  }
+  if (num3 > maxNumber) {
+    maxNumber = num3;
+  }
+
+  answ.textContent = "Найбільше, число, яке Ви написали - " + maxNumber;
+}
+
+// _______________СЛАЙДЕР__________________________
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+
