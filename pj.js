@@ -41,34 +41,28 @@ function getIntoHours(min) {
 // ___FOOTBALL_____________________________________________________
 
 const football_field = document.getElementById("football_field");
-
 const football = document.getElementById("football");
 
-football_field.addEventListener("click", whenClicked);
+football_field.addEventListener("click", moveBall);
 
+function moveBall(event) {
+  const field_rect = football_field.getBoundingClientRect();
 
-function whenClicked(event) {
+  const field_width = field_rect.width;
+  const field_height = field_rect.height;
 
-  const field_client_x = event.clientX;
-  const field_client_y = event.clientY;
+  const ball_radius = football.clientWidth / 2;
 
-  const ball_client_width = football.clientWidth;
-  const ball_client_height = football.clientHeight;
+  const field_offset_left = field_rect.left;
+  const field_offset_top = field_rect.top;
 
-  const field_offset_left = football_field.offsetLeft;
-  const field_offset_top = football_field.offsetTop;
+  const mouse_x = event.clientX - field_offset_left;
+  const mouse_y = event.clientY - field_offset_top;
 
-  const mouse_width = event.clientX - field_offset_left
-  const mouse_height = event.clientY - field_offset_top
+  const new_x = Math.max(ball_radius, Math.min(mouse_x - ball_radius, field_width - ball_radius));
+  const new_y = Math.max(ball_radius, Math.min(mouse_y - ball_radius, field_height - ball_radius));
 
-  console.log(mouse_width, mouse_height)
-
-  // football.style.transform = `translate(${mouse_width - ball_client_width}px, ${mouse_height - ball_client_height}px)`
-
-  const newX = Math.max(ball_client_width / 2, Math.min(mouse_width, field_client_x - ball_client_width / 2));
-      const newY = Math.max(ball_client_height / 2, Math.min(mouse_height, field_client_y - ball_client_height / 2));
-
-      football.style.transform = `translate(${newX - ball_client_width / 2}px, ${newY - ball_client_height / 2}px)`;
+  football.style.transform = `translate(${new_x}px, ${new_y}px)`;
 }
 
 // ________________________________________________________________
