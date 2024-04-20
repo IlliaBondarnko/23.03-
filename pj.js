@@ -35,38 +35,11 @@ checkButton.addEventListener('click', () => {
   const isLeapYear = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
 
   if (isLeapYear) {
-    result.textContent = `Ви народилися у високосний рік! `;
+    result.textContent = "Ви народилися у високосний рік!";
   } else {
-    result.textContent = `Ви народилися в не високосний рік!`;
+    result.textContent = "Ви народилися в невисокосний рік!";
   }
 });
-
-
-// // вгадай число
-
-
-// const inputGuess = document.querySelector("input_guess");
-// const guessButton = document.querySelector("guess_button");
-// const resultGuess = document.querySelector("answer_guess");
-
-// guessButton.addEventListener("click", checkGuess);
-
-// function checkGuess() {
-//   const userGuess = Number(inputGuess.value);
-//   const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-//   if (userGuess === randomNumber) {
-//     resultGuess.textContent = `Вітаю, ви вгадали число (${randomNumber})!`;
-//   } else {
-//     resultGuess.textContent = `Ви програли. Комп'ютер загадав число ${randomNumber}.`;
-//   }
-  
-//   // Очистимо поле вводу після кожної спроби
-//   inputGuess.value = "";
-// }
-
-
-
 
 
 // ________calc_time__________________________________________________
@@ -242,65 +215,139 @@ function showSlides(n) {
 }
 
 
-//____________КАМІНЬ_НОЖИЦІ_ПАПІР______________________________________
+// ______SCIENTISTS___________________________
+
+const scientists = [ 
+    { 
+        name: "Albert", 
+        surname: "Einstein", 
+        born: 1879, 
+        dead: 1955, 
+        id: 1 
+    }, 
+    { 
+        name: "Isaac", 
+        surname: "Newton", 
+        born: 1643, 
+        dead: 1727, 
+        id: 2 
+    }, 
+    { 
+        name: "Galileo", 
+        surname: "Galilei", 
+        born: 1564, 
+        dead: 1642, 
+        id: 3 
+    }, 
+    { 
+        name: "Marie", 
+        surname: "Curie", 
+        born: 1867, 
+        dead: 1934, 
+        id: 4 
+    }, 
+    { 
+        name: "Johannes", 
+        surname: "Kepler", 
+        born: 1571, 
+        dead: 1630, 
+        id: 5 
+    }, 
+    { 
+        name: "Nicolaus", 
+        surname: "Copernicus", 
+        born: 1473, 
+        dead: 1543, 
+        id: 6 
+    }, 
+    { 
+        name: "Max", 
+        surname: "Planck", 
+        born: 1858, 
+        dead: 1947, 
+        id: 7 
+    }, 
+    { 
+        name: "Katherine", 
+        surname: "Blodgett", 
+        born: 1898, 
+        dead: 1979, 
+        id: 8 
+    }, 
+    { 
+        name: "Ada", 
+        surname: "Lovelace", 
+        born: 1815, 
+        dead: 1852, 
+        id: 9 
+    }, 
+    { 
+        name: "Sarah E.", 
+        surname: "Goode", 
+        born: 1855, 
+        dead: 1905, 
+        id: 10 
+    }, 
+    { 
+        name: "Lise", 
+        surname: "Meitner", 
+        born: 1878, 
+        dead: 1968, 
+        id: 11 
+    }, 
+    { 
+        name: "Hanna", 
+        surname: "Hammarström", 
+        born: 1829, 
+        dead: 1909, 
+        id: 12 
+    } 
+];
+
+const btn1 = document.getElementById("button1")
+btn1.addEventListener("click", nineteenth)
+
+const div = document.querySelector(".photos_gallery");
 
 
-const cut = document.querySelector("#cut");
+function nineteenth() {
+  const res = scientists.filter((item) => item.born > 1800 && item.born < 1901)
+  const render = renderHTML(res)
+  div.insertAdjacentHTML('beforeend', render)
+}
 
-const stone = document.querySelector("#stone");
+function renderHTML(arr) {
+  div.innerHTML = '';
+  return arr.map((item) => `<div class="sc_img"><p>${item.name} ${item.surname}</p><p>${item.born}-${item.dead}</p></div>`).join(" ")
+}
 
-const papar = document.querySelector("#papar");
-
-
-const computerOutput = document.querySelector(".p-computer span");
-
-
-const yourOutput = document.querySelector(".p-You span");
-
-
-const winerOutput = document.querySelector(".p-winer");
-
-
-const scoreText = document.querySelector(".p-rahunok");
+const btn2 = document.getElementById("button2")
+btn2.addEventListener("click", alphabet)
 
 
+function alphabet() {
+  const res = scientists.map((item) => item).sort((a, b) => a.name.localeCompare(b.name))
+  const render = renderHTML(res)
+  div.insertAdjacentHTML('beforeend', render)
+}
 
-let computerScore = 0;
-let yourScore = 0;
+const btn3 = document.getElementById("button3")
+btn3.addEventListener("click", byYears)
 
-cut.addEventListener("click", function() {
-    playGame("Ножиці");
-});
-
-stone.addEventListener("click", function () {
-    playGame("Камінь");
-});
-
-papar.addEventListener("click", function() {
-    playGame("Папір");
-});
-
-function playGame(userChoice) {
-    const options = ["Ножиці", "Камінь", "Папір"];
-    const computerChoice = options[Math.floor(Math.random() * options.length)];
-    
-    computerOutput.textContent = computerChoice;
-    yourOutput.textContent = userChoice;
+function byYears(){
+  const res = scientists.map((item) => item).sort((a, b) => (b.dead - b.born)-(a.dead-a.born))
+  const render = renderHTML(res)
+  div.insertAdjacentHTML('beforeend', render)}
 
 
-    
-    if (userChoice === computerChoice) {
-        winerOutput.textContent = "Нічия!";
-    } else if (
-        (userChoice === "Ножиці" && computerChoice === "Папір") ||
-        (userChoice === "Камінь" && computerChoice === "Ножиці") ||
-        (userChoice === "Папір" && computerChoice === "Камінь")
-    ) {
-        winerOutput.textContent = "Ви виграли!";
-        yourScore++;
-    } else {
-        winerOutput.textContent = "Ви програли!";
-        computerScore++;
-    }
 
+const btn8 = document.getElementById("button8")
+btn8.addEventListener("click", lessMore)
+
+function lessMore() {
+  let array = [];
+  const res = scientists.map((item) => item).sort((a, b) => (b.dead - b.born) - (a.dead - a.born))
+  array.push(res[res.length - 1], res[0])
+  const render = renderHTML(array)
+  div.insertAdjacentHTML('beforeend', render)
 }
