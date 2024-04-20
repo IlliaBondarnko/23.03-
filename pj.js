@@ -12,6 +12,63 @@ window.onclick = function(e) {
   }
 }
 
+
+
+
+
+/// ___________________В_ЯКИЙ_РІК_НАРОДИВСЯ____________________________
+
+
+
+const yearInput = document.getElementById('year_input');
+const checkButton = document.getElementById('year_button');
+const result = document.getElementById('year_answer');
+
+checkButton.addEventListener('click', () => {
+  const year = parseInt(yearInput.value);
+
+  if (year.toString().length !== 4) {
+    result.textContent = '';
+    return;
+  }
+
+  const isLeapYear = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
+
+  if (isLeapYear) {
+    result.textContent = `Ви народилися у високосний рік! `;
+  } else {
+    result.textContent = `Ви народилися в не високосний рік!`;
+  }
+});
+
+
+// // вгадай число
+
+
+// const inputGuess = document.querySelector("input_guess");
+// const guessButton = document.querySelector("guess_button");
+// const resultGuess = document.querySelector("answer_guess");
+
+// guessButton.addEventListener("click", checkGuess);
+
+// function checkGuess() {
+//   const userGuess = Number(inputGuess.value);
+//   const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+//   if (userGuess === randomNumber) {
+//     resultGuess.textContent = `Вітаю, ви вгадали число (${randomNumber})!`;
+//   } else {
+//     resultGuess.textContent = `Ви програли. Комп'ютер загадав число ${randomNumber}.`;
+//   }
+  
+//   // Очистимо поле вводу після кожної спроби
+//   inputGuess.value = "";
+// }
+
+
+
+
+
 // ________calc_time__________________________________________________
 
 const time_calc_input = document.getElementById("time_calc_input_id")
@@ -185,3 +242,65 @@ function showSlides(n) {
 }
 
 
+//____________КАМІНЬ_НОЖИЦІ_ПАПІР______________________________________
+
+
+const cut = document.querySelector("#cut");
+
+const stone = document.querySelector("#stone");
+
+const papar = document.querySelector("#papar");
+
+
+const computerOutput = document.querySelector(".p-computer span");
+
+
+const yourOutput = document.querySelector(".p-You span");
+
+
+const winerOutput = document.querySelector(".p-winer");
+
+
+const scoreText = document.querySelector(".p-rahunok");
+
+
+
+let computerScore = 0;
+let yourScore = 0;
+
+cut.addEventListener("click", function() {
+    playGame("Ножиці");
+});
+
+stone.addEventListener("click", function () {
+    playGame("Камінь");
+});
+
+papar.addEventListener("click", function() {
+    playGame("Папір");
+});
+
+function playGame(userChoice) {
+    const options = ["Ножиці", "Камінь", "Папір"];
+    const computerChoice = options[Math.floor(Math.random() * options.length)];
+    
+    computerOutput.textContent = computerChoice;
+    yourOutput.textContent = userChoice;
+
+
+    
+    if (userChoice === computerChoice) {
+        winerOutput.textContent = "Нічия!";
+    } else if (
+        (userChoice === "Ножиці" && computerChoice === "Папір") ||
+        (userChoice === "Камінь" && computerChoice === "Ножиці") ||
+        (userChoice === "Папір" && computerChoice === "Камінь")
+    ) {
+        winerOutput.textContent = "Ви виграли!";
+        yourScore++;
+    } else {
+        winerOutput.textContent = "Ви програли!";
+        computerScore++;
+    }
+
+}

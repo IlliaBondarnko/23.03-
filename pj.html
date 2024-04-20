@@ -47,19 +47,19 @@
             <h3 class="heading1">Перевір в який рік ти народився</h3>
             <div class="input_and_answer_group">
                 <div class="input-group">
-                    <input type="text" placeholder="Введіть рік народження" class="input-field">
-                    <button type="submit" class="button">🔍︎</button>
+                    <input id="year_input" type="text" placeholder="Введіть рік народження" class="input-field">
+                    <button id="year_button" type="submit" class="button">🔍︎</button>
                 </div>
-                <p class="answer">Ви народилися у високосний рік!</p>
+                <p id="year_answer" class="answer">Ви народилися у високосний рік!</p>
             </div>
             <hr>
             <h3 class="heading1">Вгадай число, яке загадав комп'ютер</h3>
             <div class="input_and_answer_group">
                 <div class="input-group" style="margin-right: 202px;">
-                    <input type="text" placeholder="Введіть число" style="width: 115px;" class="input-field">
-                    <button type="submit" class="button">🔍︎</button>
+                    <input id="input_guess" type="number" min="1" max="100" placeholder="Введіть число" style="width: 129px;" class="input-field">
+                    <button id="guess_button" type="submit"  class="button">🔍︎</button>
                 </div>
-                <p class="answer">Вітаю, Ви вгадали число! (number)</p>
+                <p id="answer_guess" class="answer">Вітаю, Ви вгадали число! (number)</p>
             </div>
             <hr>
             <h3 class="heading1">Камінь - ножиці - папір</h3>
