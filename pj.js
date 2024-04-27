@@ -363,6 +363,27 @@ function lessMore() {
   div.insertAdjacentHTML('beforeend', render)
 }
 
+const btn5 = document.getElementById("button5")
+btn5.addEventListener("click", findEnstain)
+
+function findEnstain() {
+  const Albert = scientists.find(Sciensits => Sciensits.surname == "Einstein")
+  const render = renderAlbert(Albert)
+  div.insertAdjacentHTML('beforeend', render)
+}
+
+function renderAlbert(object) {
+  div.innerHTML = '';
+return `<div class="sc_img"><p><p>${object.born}</p></div>`
+  
+}
+
+function findC() {
+  const cList = scientists.filter((item) => item.surname.startsWith("C"))
+  const render = renderHTML(cList)
+  div.insertAdjacentHTML('beforeend', render)
+}
+
 const btn6 = document.getElementById("button6")
 btn6.addEventListener("click", findC)
 
