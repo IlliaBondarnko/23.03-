@@ -339,7 +339,18 @@ function byYears(){
   const render = renderHTML(res)
   div.insertAdjacentHTML('beforeend', render)}
 
+const btn4 = document.getElementById("btn4");
+btn4.addEventListener("click", lastbornPerson);
 
+function lastbornPerson() {
+  const LastBorn = scientists.sort((a, b) => b.born - a.born)
+  const sintens = LastBorn[
+    0
+  ];
+
+  const render = renderHTML([sintens]);
+    div.insertAdjacentHTML('beforeend', render)
+}
 
 const btn8 = document.getElementById("button8")
 btn8.addEventListener("click", lessMore)
@@ -350,4 +361,106 @@ function lessMore() {
   array.push(res[res.length - 1], res[0])
   const render = renderHTML(array)
   div.insertAdjacentHTML('beforeend', render)
+}
+
+const btn6 = document.getElementById("button6")
+btn6.addEventListener("click", findC)
+
+function findC() {
+  const cList = scientists.filter((item) => item.surname.startsWith("C"))
+  const render = renderHTML(cList)
+  div.insertAdjacentHTML('beforeend', render)
+}
+
+const btn7 = document.getElementById("button7")
+btn7.addEventListener("click", delA)
+
+function delA() {
+  const delList = scientists.filter((item) => !item.name.startsWith("A"))
+  const render = renderHTML(delList)
+  div.insertAdjacentHTML('beforeend', render)
+}
+
+const btn9 = document.getElementById("button9")
+btn9.addEventListener("click", similarFirstLetter)
+
+function similarFirstLetter() {
+  const sim = scientists.filter((item) => item.name[0] === item.surname[0])
+  const render = renderHTML(sim)
+  div.insertAdjacentHTML('beforeend', render)
+}
+
+let modal = document.getElementById("myModal");
+let modal2 = document.getElementById("modal2");
+let openModalBtn = document.getElementById("openModalBtn");
+let closeBtns = document.querySelectorAll(".close");
+let submitBtn = document.getElementById("submitName");
+
+
+const loginUserName = document.querySelector("#userNameHeader");
+
+
+openModalBtn.onclick = function() {
+modal.style.display = "block";
+}
+
+closeBtns.forEach(function(btn) {
+btn.onclick = function() {
+modal.style.display = "none";
+modal2.style.display = "none";
+}
+});
+
+submitBtn.onclick = function() {
+let userName = document.getElementById("userNameInput").value;
+if (userName.trim() !== "") {
+modal.style.display = "none";
+modal2.style.display = "block";
+console.log(userName);
+loginUserName.textContent = userName;
+} else {
+alert("Будь ласка, введіть ваше ім'я.");
+}
+}
+
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+if (event.target == modal2) {
+modal2.style.display = "none";
+}
+}
+
+// THEME_MODE_________________________________________
+
+// const dayButton = document.getElementById("day");
+// const nightButton = document.getElementById("night");
+const checkbox = document.getElementById("switch-shadow");
+// const game = document.querySelector(".game");
+
+checkbox.addEventListener("change", onChange);
+// dayButton.addEventListener("click", dayClick);
+// nightButton.addEventListener("click", nightClick);
+
+function dayClick(e) {
+  document.body.style.backgroundColor = "white";
+  document.body.style.color = "black";
+  document.body.style.transition = "background-color 350ms linear";
+}
+
+function nightClick(e) {
+  document.body.style.backgroundColor = "black";
+  document.body.style.color = "white";
+  document.body.style.transition = "background-color 350ms linear";
+}
+
+function onChange(e) {
+  if (checkbox.checked) {
+    nightClick(e);
+    game.style.backgroundColor = "yellow";
+  } else {
+    dayClick(e);
+    game.style.backgroundColor = "white";
+  }
 }

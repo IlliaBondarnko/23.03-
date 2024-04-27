@@ -36,10 +36,41 @@
             <!-- https://dev.to/kunalukey/dark-mode-toggle-feature-css-only-180c
             <input type="checkbox" id="toggle"> -->
         <div class="flex_btn_text">
-            <img class="switch_mode_btn" src="./imgs/switch_mode_btn.png" alt="img">
+            <!-- <img class="switch_mode_btn" src="./imgs/switch_mode_btn.png" alt="img"> -->
+            <div class="switch_mode_btn switch__container">
+                <input id="switch-shadow" class="switch switch--shadow" type="checkbox" />
+                <label for="switch-shadow"></label>
+            </div>
             <h3 class="user_greatings">Вітаємо, User</h3>
         </div>
     </header>
+    <section>
+        <h3 class="hedinguser">
+            Вітаємо, <span id="userNameHeader"></span>
+        </h3>
+    
+        <button class="buttonclick" id="openModalBtn">Login</button>
+    
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>
+                    Привіт!<br />Ви потрапили на сайт інтерактивних ігор та
+                    завдань.<br />Надіємось, що вам сподобається i ви отримаєте
+                    позитивні емоції!<br />Бажаємо Вам гарно провести час!
+                </p>
+                <input type="text" id="userNameInput" placeholder="Введіть ваше ім'я" />
+                <button id="submitName">Підтвердити</button>
+            </div>
+        </div>
+    
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Дякуємо за підписку!</p>
+            </div>
+        </div>
+    </section>
     <section class="game_1_2">
         <div class="container">
             <h1 class="main_heading">Популярні інтерактивні ігри</h1>
@@ -169,7 +200,7 @@
               <hr>
             <!-- _______________________________________________________ -->
             <h3 class="heading1">Обери вченого/их</h3>
-            <div class="photos_gallery" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="photos_gallery">
                 <!-- <div class="blick_item" style="display: flex; justify-content: center; align-items: center;">
                     <div class="sc_img"><p></p><p></p></div>
                     <div class="sc_img"></div>
@@ -195,17 +226,17 @@
                     <button id="button1" class="right_button_list_item button_game">Які вчені народилися в 19 ст.</button>
                     <button id="button2" class="right_button_list_item button_game">Відсортувати вчених за алфавітом</button>
                     <button id="button3" class="right_button_list_item button_game">Відсортувати вчених за кількістю прожитих років</button>
-                    <button class="right_button_list_item button_game">Знайти вченого, який народився найпізніше</button>
+                    <button class="right_button_list_item button_game" id="btn4">Знайти вченого, який народився найпізніше</button>
                 </div>
                 <div class="left_block_of_btns" style="width: 450px;">
                     <button class="left_button_list_item button_game">Знайти рік народження Albert Einshtein</button>
-                    <button class="left_button_list_item button_game">Знайти вчених, прізвища яких починаються на на літеру “С”</button>
-                    <button class="left_button_list_item button_game">Видалити всіх вчених, ім’я яких починається на “А”</button>
+                    <button class="left_button_list_item button_game" id="button6">Знайти вчених, прізвища яких починаються на на літеру “С”</button>
+                    <button class="left_button_list_item button_game" id="button7">Видалити всіх вчених, ім’я яких починається на “А”</button>
                     <button id="button8" class="left_button_list_item button_game">Знайти вченого, який прожив найдовше і вченого,
                         який прожив найменше</button>
                 </div>
             </div>
-            <button class="button_game" style="display: block; margin: 0 auto;">1. Знайти вчених, в яких співпадають перші літери імені і прізвища</button>
+            <button class="button_game" id="button9" style="display: block; margin: 0 auto;">1. Знайти вчених, в яких співпадають перші літери імені і прізвища</button>
         </div>
     </section>
     <footer>
