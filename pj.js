@@ -511,3 +511,70 @@ function onChange(e) {
     dayClick(e);
   }
 }
+
+
+// камінь ножиці папір
+
+
+// const cut = document.querySelector("#cut");
+
+// const stone = document.querySelector("#stone");
+
+// const papar = document.querySelector("#papar");
+
+
+// const computerOutput = document.querySelector(".p-computer span");
+
+
+// const yourOutput = document.querySelector(".p-You span");
+
+
+// const winerOutput = document.querySelector(".p-winer");
+
+
+// const scoreText = document.querySelector(".p-rahunok");
+
+
+
+
+// let computerScore = 0;
+// let yourScore = 0;
+
+// cut.addEventListener("click", function() {
+//     playGame("Ножиці");
+// });
+
+// stone.addEventListener("click", function () {
+//     playGame("Камінь");
+// });
+
+// papar.addEventListener("click", function() {
+//     playGame("Папір");
+// });
+
+// function playGame(userChoice) {
+//     const options = ["Ножиці", "Камінь", "Папір"];
+//     const computerChoice = options[Math.floor(Math.random() * options.length)];
+    
+//     computerOutput.textContent = computerChoice;
+//     yourOutput.textContent = userChoice;
+//   scoreText.textContent = yourScore;
+
+    
+//     if (userChoice === computerChoice) {
+//         winerOutput.textContent = "Нічия!";
+//     } else if (
+//         (userChoice === "Ножиці" && computerChoice === "Папір") ||
+//         (userChoice === "Камінь" && computerChoice === "Ножиці") ||
+//         (userChoice === "Папір" && computerChoice === "Камінь")
+//     ) {
+//         winerOutput.textContent = "Ви виграли!";
+//         yourScore++;
+//     } else {
+//         winerOutput.textContent = "Ви програли!";
+//         computerScore++;
+//     }
+
+// }
+
+// https://github.com/stasqwertyQ/project-3sem/blob/main/js.js
