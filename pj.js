@@ -467,21 +467,47 @@ checkbox.addEventListener("change", onChange);
 function dayClick(e) {
   document.body.style.backgroundColor = "white";
   document.body.style.color = "black";
+  // document.header.style.backgroundColor = "white";
+  // document.header.style.color = "black"
+  // document.footer.style.backgroundColor = "white";
+  // document.footer.style.color = "black";
+  document.getElementById("container").style.backgroundColor = "white";
+  document.getElementById("container").style.color = "black";
+  document.getElementById("header").style.backgroundColor = "white";
+  document.getElementById("header").style.color = "black";
+  document.getElementById("footer").style.backgroundColor = "white";
+  document.getElementById("footer").style.color = "white";
+  document.getElementById("nav").style.backgroundColor = "white";
+  document.getElementById("nav").style.color = "black";
   document.body.style.transition = "background-color 350ms linear";
+  document.body.style.backgroundImage = "url('./imgs/bg.png')"
+
 }
+
 
 function nightClick(e) {
   document.body.style.backgroundColor = "black";
   document.body.style.color = "white";
+  // document.header.style.backgroundColor = "black";
+  // document.header.style.color = "white";
+  // document.footer.style.backgroundColor = "black";
+  // document.footer.style.color = "white";
+  document.getElementById("container").style.backgroundColor = "#424242";
+  document.getElementById("container").style.color = "white";
+  document.getElementById("header").style.backgroundColor = "#424242";
+  document.getElementById("header").style.color = "white";
+  document.getElementById("footer").style.backgroundColor = "#424242";
+  document.getElementById("footer").style.color = "white";
+  document.getElementById("nav").style.backgroundColor = "#424242";
+  // document.getElementById("nav").style.color = "black";
   document.body.style.transition = "background-color 350ms linear";
+  document.body.style.backgroundImage = "url('./imgs/bgblack.jpg')"
 }
 
 function onChange(e) {
   if (checkbox.checked) {
     nightClick(e);
-    game.style.backgroundColor = "yellow";
   } else {
     dayClick(e);
-    game.style.backgroundColor = "white";
   }
 }

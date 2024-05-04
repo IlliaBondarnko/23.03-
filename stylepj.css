@@ -37,6 +37,13 @@ body {
 
 /* ____________HEADER__________________________________________ */
 
+.switch_mode_btn {
+    width: 40px;
+    height: 20px;
+    margin-right: 50px;
+}
+
+
 header {
     display: flex;
     justify-content: center;
@@ -262,7 +269,7 @@ input[type=text] {
 }
 
 .switch__container {
-    margin: 30px auto;
+    margin: 0 auto;
     width: 120px;
 }
 
@@ -282,8 +289,8 @@ input[type=text] {
 
 .switch--shadow+label {
     padding: 2px;
-    width: 120px;
-    height: 60px;
+    width: 40px;
+    height: 20px;
     background-color: #dddddd;
     border-radius: 60px;
 }
@@ -306,7 +313,7 @@ input[type=text] {
 }
 
 .switch--shadow+label:after {
-    width: 62px;
+    width: 15px;
     background-color: #fff;
     border-radius: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -318,7 +325,7 @@ input[type=text] {
 }
 
 .switch--shadow:checked+label:after {
-    transform: translateX(60px);
+    transform: translateX(23px);
 }
 
 /* Estilo Flat */
@@ -367,11 +374,7 @@ input[type=text] {
     background-color: #8ce196;
 }
 
-.switch_mode_btn {
-    width: 40px;
-    height: 20px;
-    margin-right: 50px;
-}
+
 
 /* _______________________________________________________ */
 /* _______SECTION_1_______________________________________________ */
